@@ -1,0 +1,71 @@
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const navLinks = [
+    { href: "#hero", label: "Inicio" },
+    { href: "#countdown", label: "Cuenta Regresiva" },
+    { href: "#program", label: "Programa" },
+    { href: "#ceremony", label: "Ceremonia" },
+    { href: "#timeline", label: "Cronograma" },
+    { href: "#dresscode", label: "Vestimenta" },
+    { href: "#gifts", label: "Regalos" },
+    { href: "#rsvp", label: "Confirmar" },
+    { href: "#thankyou", label: "Gracias" },
+  ]
+
+  return (
+    <header className="bg-[#f5f1eb] py-4 px-6 shadow-sm sticky top-0 z-50">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="#hero" className="text-3xl font-script text-[#8b7355]">
+          B&S
+        </Link>
+        <nav className="hidden md:block">
+          <ul className="flex space-x-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[#8b7355] hover:text-[#7a6449] font-serif text-lg transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <button
+          className="md:hidden text-[#8b7355]"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#f5f1eb] shadow-lg py-4 z-40">
+          <ul className="flex flex-col items-center space-y-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[#8b7355] hover:text-[#7a6449] font-serif text-lg transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+  )
+}

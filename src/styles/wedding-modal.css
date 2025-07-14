@@ -1,0 +1,65 @@
+.wedding-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.wedding-modal.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wedding-modal-content {
+  background: #fff;
+  border: 4px double #51131D;
+  padding: 40px 30px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.wedding-modal.fade-out .wedding-modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.wedding-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #3c3c3c;
+  line-height: 1.6;
+}
+
+.wedding-button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  background-color: transparent;
+  border: 2px solid #51131D;
+  color: #a58a71;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wedding-button:hover {
+  background-color: #a58a71;
+  color: #fff;
+}
+
+.blurred {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
