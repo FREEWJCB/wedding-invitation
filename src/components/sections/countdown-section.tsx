@@ -1,13 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
 
 export default function CountdownSection() {
-  const router = useRouter()
-  const handleRedirect = () => {
-    router.push('/invitation')
-  }
   const targetDate = new Date("2025-11-15T15:30:00-05:00").getTime()
 
   const calculateTimeLeft = () => {
@@ -83,14 +78,6 @@ export default function CountdownSection() {
         <h3 className="text-lg md:text-xl font-serif text-[#8b7355] mb-6">
           Con la bendición de Dios, de nuestros padres y padrinos
         </h3>
-
-        {/* BOTÓN NUEVO */}
-        <button
-          onClick={handleRedirect}
-          className="mt-4 inline-block bg-transparent border-2 border-[#8b7355] text-[#8b7355] font-serif px-6 py-3 rounded-lg text-base md:text-lg tracking-wide hover:bg-[#8b7355] hover:text-white transition-colors duration-300"
-        >
-          Ver Invitación
-        </button>
       </div>
     </section>
   )
