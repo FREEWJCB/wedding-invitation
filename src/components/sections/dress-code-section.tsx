@@ -4,7 +4,7 @@ export default function DressCodeSection() {
   return (
     <section id="dresscode" className="py-16 px-6 bg-[#f5f1eb] text-center">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-script text-[#8b7355] mb-12">Información Importante</h2>
+        {/* <h2 className="text-3xl md:text-4xl font-script text-[#8b7355] mb-12">Información Importante</h2> */}
 
         {/* Kids message */}
         <div className="bg-white p-8 rounded-lg shadow-md mb-12">

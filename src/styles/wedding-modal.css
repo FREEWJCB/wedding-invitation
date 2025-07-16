@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Charmonman&display=swap');
 .wedding-modal {
   position: fixed;
   inset: 0;
@@ -34,7 +35,7 @@
 }
 
 .wedding-message {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Palatino', serif;
   font-size: 24px;
   color: #3c3c3c;
   line-height: 1.6;
@@ -43,7 +44,7 @@
 .wedding-button {
   margin-top: 20px;
   padding: 12px 30px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Charmonman', serif;
   font-size: 20px;
   background-color: transparent;
   border: 2px solid #51131D;

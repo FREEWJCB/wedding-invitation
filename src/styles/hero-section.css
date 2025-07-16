@@ -23,17 +23,17 @@
 .invitacion-animada .strip {
   flex: 1;
   height: 100%;
-  background-image: url('../../public/boda.jpg');
+  background-image: url('../../public/boda.jpeg');
   background-repeat: no-repeat;
-  background-size: cover; /* ← clave para que se ajuste sin cortarse */
-  background-position: center;
+  background-size: 300% 100%; /* ← clave para dividir la imagen en 3 partes */
+  background-position-y: center;
   animation-duration: 6s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-/* individual strip animation */
+/* Ajuste preciso de cada franja */
 .invitacion-animada .strip:nth-child(1) {
   background-position-x: 0%;
   animation-name: floatUpDown;
@@ -68,7 +68,7 @@
 .nombre {
   position: absolute;
   font-size: 36px;
-  color: #fff;
+  color: #8b7355;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
 }
@@ -89,7 +89,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 40px;
-  color: #fff;
+  color: #8b7355;
   font-family: var(--font-great-vibes), cursive;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }

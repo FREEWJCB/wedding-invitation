@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
+/* Variables base */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-title: "Apple Chancery", cursive;
+  --font-body: "Palatino", "Palatino Linotype", "Book Antiqua", serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +16,22 @@
   }
 }
 
+/* Tema con variables personalizadas */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Fuente general para el body */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+/* Fuente para títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
 }

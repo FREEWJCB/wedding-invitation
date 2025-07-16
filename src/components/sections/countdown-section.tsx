@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-
+import HeroImage from '@/components/hero-image'
 export default function CountdownSection() {
   const targetDate = new Date("2025-11-15T15:30:00-05:00").getTime()
 
@@ -74,11 +74,28 @@ export default function CountdownSection() {
             <span className="block text-sm md:text-base font-body font-normal mt-1">SEGUNDOS</span>
           </div>
         </div>
-
         <h3 className="text-lg md:text-xl font-serif text-[#8b7355] mb-6">
           Con la bendición de Dios, de nuestros padres y padrinos
         </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm md:text-base text-[#8b7355] mb-12">
+          <div>
+            <h4 className="font-semibold mb-2">PAPÁS DE LA NOVIA</h4>
+            <p>PORFIRIO RAMÍREZ</p>
+            <p>MIRANDA ENRÍQUEZ</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">PAPÁS DEL NOVIO</h4>
+            <p>JAVIER CUEVAS</p>
+            <p>GUADALUPE GUERRERO</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">PADRINOS DE VELACIÓN</h4>
+            <p>EMMANUEL ENRÍQUEZ</p>
+            <p>LUZ ELENA FLORES</p>
+          </div>
+        </div>
       </div>
+      <HeroImage imagePath="/program.jpeg" />
     </section>
   )
 }

@@ -1,0 +1,17 @@
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-image-container {
+    max-width: 90%;
+  }
+}

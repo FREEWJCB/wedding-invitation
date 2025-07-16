@@ -3,13 +3,13 @@ import HeroSection from "@/components/sections/hero-section"
 import CountdownSection from "@/components/sections/countdown-section"
 import Footer from "@/components/footer"
 import WeddingModal from "@/components/sections/wending-modal.section"
-import ProgramOverviewSection from '@/components/sections/program-overview-section';
 import CeremonyReceptionSection from '@/components/sections/ceremony-reception-section';
 import TimelineSection from '@/components/sections/timeline-section';
 import DressCodeSection from '@/components/sections/dress-code-section';
 import GiftsSection from '@/components/sections/gifts-section';
 import RSVPSection from '@/components/sections/rsvp-section';
 import ThankYouSection from '@/components/sections/thank-you-section';
+import CeremonyReceptionSection2 from "@/components/sections/ceremony-reception-section2"
 
 export default function HomePage() {
   return (
@@ -19,9 +19,9 @@ export default function HomePage() {
       <main id="mainContent">
         <HeroSection />
         <CountdownSection />
-        <ProgramOverviewSection />
         <CeremonyReceptionSection />
         <TimelineSection />
+        <CeremonyReceptionSection2 />
         <DressCodeSection />
         <GiftsSection />
         <RSVPSection />
