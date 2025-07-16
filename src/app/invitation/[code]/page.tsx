@@ -8,7 +8,13 @@ import RSVPSection from "@/components/sections/rsvp-section"
 import ThankYouSection from "@/components/sections/thank-you-section"
 import Footer from "@/components/footer"
 
-export default function InvitationPage() {
+import { getInvitation } from "@/actions/invitations"
+import { notFound } from "next/navigation"
+
+const InvitationPage = async ({ params }: { params: Promise<{ code: string }>; }) => {
+  const { code } = await params;
+  const invitation = await getInvitation(code).catch(notFound);
+  console.log(JSON.stringify(invitation, null, 2));
   return (
     <div className="min-h-screen bg-[#f5f1eb] text-[#8b7355] font-body">
       <Header />
@@ -24,4 +30,6 @@ export default function InvitationPage() {
       <Footer />
     </div>
   )
-}
+};
+
+export default InvitationPage;
