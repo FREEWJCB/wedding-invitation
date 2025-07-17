@@ -1,7 +1,7 @@
 'use client'
 
+import Image from 'next/image'
 import React from 'react'
-import '@/styles/hero-image.css'
 
 interface HeroImageProps {
   imagePath: string // Ejemplo: "/program.jpeg"
@@ -13,10 +13,15 @@ export default function HeroImage({ imagePath }: HeroImageProps) {
       id="hero"
       className="relative w-full bg-[#f5f1eb] overflow-hidden flex justify-center"
     >
-      <div
-        className="hero-image-container w-full max-w-[600px] relative"
-        style={{ backgroundImage: `url(${imagePath})` }}
-      />
+      <div className="w-full max-w-[600px] aspect-[3/4] relative overflow-hidden">
+        <Image
+          src={imagePath}
+          alt="Imagen de pareja"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
     </section>
   )
 }

@@ -1,14 +1,19 @@
+/* Importa Great Vibes como fallback para Apple Chancery */
+@import url('https://fonts.googleapis.com/css2?family=Charmonman&family=Dancing+Script:wght@400;600&display=swap');
+
+
+
+/* Tailwind base */
 @import "tailwindcss";
 
-/* Variables base */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-title: "Apple Chancery", cursive;
-  --font-body: "Palatino", "Palatino Linotype", "Book Antiqua", serif;
+  --font-title: 'Dancing Script', cursive;
+  --font-names: 'Charmonman', cursive;
+  --font-body: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif; 
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -16,22 +21,21 @@
   }
 }
 
-/* Tema con variables personalizadas */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* Fuente general para el body */
+/* Aplicar fuentes globalmente */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-body); /* Palatino */
 }
 
-/* Fuente para títulos */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-title);
+body {
+  font-family: var(--font-body); /* Palatino para todo el cuerpo del sitio */
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title); /* Dancing Script por defecto */
+}
+
+h1.names, h2.names, h3.names {
+  font-family: var(--font-names); /* Charmonman solo para los nombres */
 }

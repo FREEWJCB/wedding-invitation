@@ -44,11 +44,11 @@
 .wedding-button {
   margin-top: 20px;
   padding: 12px 30px;
-  font-family: 'Charmonman', serif;
+  font-family: 'Palatino', serif;
   font-size: 20px;
   background-color: transparent;
   border: 2px solid #51131D;
-  color: #a58a71;
+  color: #51131D;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -56,7 +56,7 @@
 }
 
 .wedding-button:hover {
-  background-color: #a58a71;
+  background-color: #51131D;
   color: #fff;
 }
 

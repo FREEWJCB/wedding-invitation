@@ -2,6 +2,15 @@
 
 import { useState, useEffect } from "react"
 import HeroImage from '@/components/hero-image'
+import { motion } from "framer-motion"
+
+const paragraphLines = [
+  "NUESTRA FELICIDAD SOLO ESTÁ COMPLETA",
+  "CUANDO LA COMPARTIMOS CON LAS PERSONAS",
+  "A LAS QUE AMAMOS NOS HARÍA","INMENSAMENTE FELICES QUE NOS ACOMPAÑARAN",
+  "EN EL INICIO DE NUESTRA VIDA JUNTOS."
+]
+
 export default function CountdownSection() {
   const targetDate = new Date("2025-11-15T15:30:00-05:00").getTime()
 
@@ -31,70 +40,77 @@ export default function CountdownSection() {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft())
     }, 1000)
-
     return () => clearInterval(timer)
   }, [])
 
   return (
-    <section id="countdown" className="py-16 px-6 bg-[#f5f1eb] text-center">
+    <section id="countdown" className="py-6 px-6 bg-[#f5f1eb] text-center overflow-hidden">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-script text-[#8b7355] mb-2 leading-tight">
-          ¡Nos casamos! ¡Reserva la fecha!
-        </h2>
-        <h4 className="text-2xl md:text-3xl font-serif text-[#8b7355] mb-2 font-medium tracking-wide">
-          15 Noviembre 2025
-        </h4>
-        <h3 className="text-4xl md:text-5xl font-script text-[#8b7355] mb-2 leading-tight">
-          CAMILA & LUIS
-        </h3>
-        <h3 className="text-xl md:text-2xl font-serif text-[#8b7355] mb-6 tracking-wide font-semibold">
-          CUPOS (2)
-        </h3>
-
-        <p className="text-sm md:text-base text-[#8b7355] leading-relaxed mb-10 max-w-xl mx-auto">
-          Nuestra felicidad solo está completa cuando la compartimos con las personas a las que amamos.
-          Nos haría inmensamente felices que nos acompañaran en el inicio de nuestra vida juntos.
-        </p>
-
-        <div className="grid grid-cols-4 gap-4 text-[#8b7355] font-mono font-bold text-3xl md:text-5xl mb-10">
-          <div>
-            {timeLeft.days}
-            <span className="block text-sm md:text-base font-body font-normal mt-1">DÍAS</span>
-          </div>
-          <div>
-            {timeLeft.hours.toString().padStart(2, "0")}
-            <span className="block text-sm md:text-base font-body font-normal mt-1">HORAS</span>
-          </div>
-          <div>
-            {timeLeft.minutes.toString().padStart(2, "0")}
-            <span className="block text-sm md:text-base font-body font-normal mt-1">MINUTOS</span>
-          </div>
-          <div>
-            {timeLeft.seconds.toString().padStart(2, "0")}
-            <span className="block text-sm md:text-base font-body font-normal mt-1">SEGUNDOS</span>
-          </div>
+        {/* Párrafo animado por línea */}
+        <div className="text-sm md:text-base text-[#000000] leading-relaxed mb-10 max-w-xl mx-auto space-y-2">
+          {paragraphLines.map((line, index) => (
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.4 }}
+            >
+              {line}
+            </motion.p>
+          ))}
         </div>
-        <h3 className="text-lg md:text-xl font-serif text-[#8b7355] mb-6">
-          Con la bendición de Dios, de nuestros padres y padrinos
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm md:text-base text-[#8b7355] mb-12">
-          <div>
-            <h4 className="font-semibold mb-2">PAPÁS DE LA NOVIA</h4>
-            <p>PORFIRIO RAMÍREZ</p>
-            <p>MIRANDA ENRÍQUEZ</p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">PAPÁS DEL NOVIO</h4>
-            <p>JAVIER CUEVAS</p>
-            <p>GUADALUPE GUERRERO</p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">PADRINOS DE VELACIÓN</h4>
-            <p>EMMANUEL ENRÍQUEZ</p>
-            <p>LUZ ELENA FLORES</p>
-          </div>
+
+        {/* Título animado por letra */}
+        <motion.h2
+          className="text-2xl md:text-4xl font-script text-[#000000] mb-4 leading-tight inline-block"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.05
+              }
+            }
+          }}
+        >
+          {"CUENTA REGRESIVA".split("").map((char, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, x: -10 },
+                visible: { opacity: 1, x: 0 }
+              }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
+        {/* Contador animado por columna */}
+        <div className="grid grid-cols-4 gap-4 text-[#000000] font-mono font-bold text-3xl md:text-5xl mb-10">
+          {[
+            { label: "DÍAS", value: timeLeft.days },
+            { label: "HORAS", value: timeLeft.hours.toString().padStart(2, "0") },
+            { label: "MINUTOS", value: timeLeft.minutes.toString().padStart(2, "0") },
+            { label: "SEGUNDOS", value: timeLeft.seconds.toString().padStart(2, "0") }
+          ].map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + index * 0.2 }}
+            >
+              {item.value}
+              <span className="block text-sm md:text-base font-body font-normal mt-1">
+                {item.label}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {/* Imagen del programa */}
       <HeroImage imagePath="/program.jpeg" />
     </section>
   )

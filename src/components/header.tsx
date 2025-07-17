@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,8 +23,14 @@ export default function Header() {
   return (
     <header className="bg-[#f5f1eb] py-4 px-6 shadow-sm sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="#hero" className="text-3xl font-script text-[#8b7355]">
-          B&S
+        <Link href="#hero" className="block w-24 h-auto relative">
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={96}
+            height={40}
+            priority
+          />
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-6">
@@ -31,7 +38,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#8b7355] hover:text-[#7a6449] font-serif text-lg transition-colors"
+                  className="text-[#000000] hover:text-[#7a6449] font-serif text-lg transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -40,7 +47,7 @@ export default function Header() {
           </ul>
         </nav>
         <button
-          className="md:hidden text-[#8b7355]"
+          className="md:hidden text-[#000000]"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -56,7 +63,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#8b7355] hover:text-[#7a6449] font-serif text-lg transition-colors"
+                  className="text-[#000000] hover:text-[#7a6449] font-serif text-lg transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
