@@ -1,32 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Charmonman&display=swap');
-.wedding-modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
 
 .wedding-modal.fade-out {
   opacity: 0;
   pointer-events: none;
 }
 
+.wedding-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
 .wedding-modal-content {
   background: #fff;
   border: 4px double #51131D;
   padding: 40px 30px;
-  max-width: 500px;
   width: 90%;
+  max-width: 90vw;    /* Evita que se pase horizontalmente */
+  max-height: 90vh;   /* Evita que se pase verticalmente */
+  overflow-y: auto;   /* Scroll si el contenido excede la altura */
+  box-sizing: border-box;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transform: scale(1);
-  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .wedding-modal.fade-out .wedding-modal-content {
