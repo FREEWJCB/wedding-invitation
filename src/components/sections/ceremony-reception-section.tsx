@@ -1,6 +1,6 @@
 "use client"
 
-import { Church } from "lucide-react"
+import { Church, Wine } from "lucide-react"
 import HeroImage from "@/components/hero-image"
 import { motion } from "framer-motion"
 
@@ -18,22 +18,62 @@ export default function CeremonyReceptionSection() {
         >
           <Church className="w-16 h-16 text-[#000000] mx-auto mb-4" />
           <h2 className="text-2xl font-script text-[#000000] mb-2">
-            Hacienda Terranostra
+            Ceremonia Religiosa
           </h2>
-          <h3 className="text-xl font-serif text-[#000000] font-semibold mb-2">
-            Subachoque
+          <div className="text-xl font-serif text-[#000000] font-semibold mb-2">
+            CAPILLA HACIENDA TERRANOSTRA
+          </div>
+          <h3 className="text-sm font-serif text-[#000000] font-semibold mb-2">
+            Subachoque, Cundinamarca
           </h3>
-          <div className="text-2xl font-serif text-[#000000] font-bold mb-4">
-            5:00 PM
+          <div className="text-2xl font-serif text-[#000000] mb-4">
+            4:00 PM
           </div>
           <div className="flex justify-center flex-wrap gap-4 mt-4">
             <a href="https://www.google.com/maps/search/?api=1&query=4.943580,-74.157142" target="_blank">
-              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#7a6449] transition-colors">
+              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#c2beb8] transition-colors">
                 Ver en Google Maps
               </button>
             </a>
             <a href="https://waze.com/ul?ll=4.943580,-74.157142&navigate=yes" target="_blank">
-              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#7a6449] transition-colors">
+              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#c2beb8] transition-colors">
+                Ver en Waze
+              </button>
+            </a>
+          </div>
+        </motion.div>
+        <div className="text-sm md:text-base text-[#000000] leading-relaxed mb-10 max-w-xl mx-auto space-y-2">
+          RECUERDA QUE LOS SÁBADOS SUELE HABER BASTANTE TRÁFICO. PLANEA TU SALIDA CON ANTICIPACIÓN.
+        </div>
+        <motion.div
+          className="bg-[#F9F6F1] p-8 rounded-lg shadow-md"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 30 }}
+          viewport={{ amount: 0.5 }}
+          transition={{ duration: 2.8, ease: "easeOut" }}
+        >
+          <Wine className="w-16 h-16 text-[#000000] mx-auto mb-4" />
+          <h2 className="text-2xl font-script text-[#000000] mb-2">
+            Recepción
+          </h2>
+          <div className="text-xl font-serif text-[#000000] font-semibold mb-2">
+            HACIENDA TERRANOSTRA
+          </div>
+          <h3 className="text-sm font-serif text-[#000000] font-semibold mb-2">
+            Subachoque, Cundinamarca
+          </h3>
+          <div className="text-2xl font-serif text-[#000000]  mb-4">
+            5:00 PM
+          </div>
+          <div className="flex justify-center flex-wrap gap-4 mt-4">
+            <a href="https://www.google.com/maps/search/?api=1&query=4.943580,-74.157142" target="_blank">
+              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#c2beb8] transition-colors">
+                Ver en Google Maps
+              </button>
+            </a>
+            <a href="https://waze.com/ul?ll=4.943580,-74.157142&navigate=yes" target="_blank">
+              <button className="bg-[#ededed] text-black px-6 py-2 rounded-lg font-serif text-base hover:bg-[#c2beb8] transition-colors">
                 Ver en Waze
               </button>
             </a>

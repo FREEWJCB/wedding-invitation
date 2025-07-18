@@ -9,19 +9,19 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    { href: "#hero", label: "Inicio" },
-    { href: "#countdown", label: "Cuenta Regresiva" },
-    { href: "#program", label: "Programa" },
-    { href: "#ceremony", label: "Ceremonia" },
-    { href: "#timeline", label: "Cronograma" },
-    { href: "#dresscode", label: "Vestimenta" },
-    { href: "#gifts", label: "Regalos" },
-    { href: "#rsvp", label: "Confirmar" },
-    { href: "#thankyou", label: "Gracias" },
+    { href: "#hero", label: "Invitacion" },
+    { href: "#rsvp", label: "Confirma tu Asistencia" },
+    // { href: "#countdown", label: "Album" },
+    // { href: "#ceremony", label: "Ceremonia" },
+    // { href: "#timeline", label: "Cronograma" },
+    // { href: "#dresscode", label: "Vestimenta" },
+    // { href: "#gifts", label: "Regalos" },
+    // { href: "#rsvp", label: "Confirmar" },
+    // { href: "#thankyou", label: "Gracias" },
   ]
 
   return (
-    <header className="bg-[#f5f1eb] py-4 px-6 shadow-sm sticky top-0 z-50">
+    <header className="bg-[#f5f1eb] py-4 px-6 shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="#hero" className="block w-24 h-auto relative">
           <Image
@@ -38,7 +38,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#000000] hover:text-[#7a6449] font-serif text-lg transition-colors"
+                  className="text-[#000000] hover:text-[#c2beb8] font-serif text-lg transition-colors"
                 >
                   {link.label}
                 </Link>

@@ -8,7 +8,7 @@ export default function DressCodeSection() {
   const sectionRef = useRef(null)
 
   return (
-    <section id="dresscode" className="py-6 px-6 bg-[#f5f1eb] text-center">
+    <section id="dresscode" className="px-6 bg-[#f5f1eb] text-center">
       <div className="max-w-3xl mx-auto relative min-h-[350px]" ref={sectionRef}>
         {/* Card contenedor */}
         <motion.div
@@ -20,7 +20,7 @@ export default function DressCodeSection() {
           viewport={{ once: false, amount: 0.6 }}
         >
           {/* Título */}
-          <motion.h2
+          <motion.div
             className="text-2xl font-serif text-black font-semibold mb-6"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function DressCodeSection() {
             viewport={{ once: false, amount: 0.6 }}
           >
             VESTIMENTA
-          </motion.h2>
+          </motion.div>
 
           {/* Descripción */}
           <motion.p
@@ -40,7 +40,7 @@ export default function DressCodeSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: false, amount: 0.6 }}
           >
-            Vestido Largo Negro / Smocking Negro
+            VESTIDO LARGO NEGRO / SMOCKING NEGRO
           </motion.p>
 
           {/* Círculos de color */}
@@ -53,7 +53,7 @@ export default function DressCodeSection() {
             viewport={{ once: false, amount: 0.6 }}
           >
             <div className="w-16 h-16 bg-black rounded-full border-2" />
-            <div className="w-16 h-16 bg-white rounded-full border-2" />
+            <div className="w-16 h-16 bg-white rounded-full" />
           </motion.div>
         </motion.div>
       </div>

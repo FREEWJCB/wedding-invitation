@@ -26,7 +26,7 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
 
   return (
     <section id="rsvp" className="px-6 bg-[#f5f1eb] text-center overflow-hidden">
-      <div className="max-w-3xl mx-auto mb-10">
+      <div className="max-w-3xl mx-auto mb-18">
         <div className="bg-[#f9f6f1] p-8 rounded-lg shadow-md">
 
           {/* Título */}
@@ -69,59 +69,65 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
 
                 {Array.from({ length: count }).map((_, idx) => (
                   <div key={idx} className="w-full max-w-md text-left">
-                    <label htmlFor={`invitees[${idx}][full_name]`} className="block font-semibold text-sm text-black mb-1">
-                      Nombre del Invitado {idx + 1}
+                    <label htmlFor={`invitees[${idx}][full_name]`} className="block text-sm text-black mb-1">
+                      Nombre del invitado {idx + 1}
                     </label>
                     <input
                       name={`invitees[${idx}][full_name]`}
                       id={`invitees[${idx}][full_name]`}
                       required
-                      className="w-full p-2 border border-gray-300 rounded"
+                      className="w-full focus:border-[#c2beb8] outline-none p-2 border border-gray-300 rounded"
                     />
-                    <label htmlFor={`invitees[${idx}][allergy_info]`} className="block font-semibold text-sm text-black mb-1 mt-2">
+                    <label htmlFor={`invitees[${idx}][allergy_info]`} className="block text-sm text-black mb-1 mt-2">
                       ¿Alguna alergia? (opcional)
                     </label>
                     <input
                       name={`invitees[${idx}][allergy_info]`}
                       id={`invitees[${idx}][allergy_info]`}
-                      className="w-full p-2 border border-gray-300 rounded"
+                      className="w-full focus:border-[#c2beb8] p-2 border outline-none border-gray-300 rounded"
                     />
                   </div>
                 ))}
 
-                {Array.from({ length: escorts }).map((_, idx) => (
-                  <div key={idx} className="w-full max-w-md text-left">
-                    <label htmlFor={`escorts[${idx}][full_name]`} className="block font-semibold text-sm text-black mb-1">
-                      Nombre del Invitado {idx + 1}
-                    </label>
-                    <input
-                      name={`escorts[${idx}][full_name]`}
-                      id={`escorts[${idx}][full_name]`}
-                      required
-                      className="w-full p-2 border border-gray-300 rounded"
-                    />
-                    <label htmlFor={`escorts[${idx}][allergy_info]`} className="block font-semibold text-sm text-black mb-1 mt-2">
-                      ¿Alguna alergia? (opcional)
-                    </label>
-                    <input
-                      name={`escorts[${idx}][allergy_info]`}
-                      id={`escorts[${idx}][allergy_info]`}
-                      className="w-full p-2 border border-gray-300 rounded"
-                    />
-                  </div>
-                ))}
+                {Array.from({ length: escorts }).map((_, idx) => {
+                  const currentIdx = idx + count;
+                  return (
+                    <div key={idx} className="w-full max-w-md text-left">
+                      <label htmlFor={`escorts[${idx}][full_name]`} className="block text-sm text-black mb-1">
+                        Nombre del invitado {currentIdx + 1}
+                      </label>
+                      <input
+                        name={`escorts[${idx}][full_name]`}
+                        id={`escorts[${idx}][full_name]`}
+                        required
+                        className="w-full p-2 border focus:border-[#c2beb8] outline-none border-gray-300 rounded"
+                      />
+                      <label htmlFor={`escorts[${idx}][allergy_info]`} className="block text-sm text-black mb-1 mt-2">
+                        ¿Alguna alergia? (opcional)
+                      </label>
+                      <input
+                        name={`escorts[${idx}][allergy_info]`}
+                        id={`escorts[${idx}][allergy_info]`}
+                        className="w-full p-2 border focus:border-[#c2beb8] outline-none border-gray-300 rounded"
+                      />
+                    </div>
+                  );
+                })}
 
                 <div className="w-full max-w-md text-left">
-                  <label htmlFor="has_choosen_driver" className="block font-semibold text-sm text-black mb-1">
+                  <label htmlFor="has_choosen_driver" className="block text-sm text-black mb-1">
                     ¿Quieres conductor elegido?
                   </label>
-                  <select name="has_choosen_driver" id="has_choosen_driver" required className="w-full p-2 border border-gray-300 rounded">
+                  <select name="has_choosen_driver" id="has_choosen_driver" required className="w-full p-2 mb-1 outline-none focus:border-[#c2beb8] border border-gray-300 rounded">
                     <option value="">Selecciona una opción</option>
                     <option value="true">Sí</option>
                     <option value="false">No</option>
                   </select>
 
-                  <label htmlFor="contact_phone" className="block font-semibold text-sm text-black mb-1 mt-2">
+                  <label htmlFor="has_choosen_driver" className="block text-sm text-gray-800 mb-1">
+                    En caso de seleccionar conductor elegido, tenga en cuenta que este servicio tiene un costo adicional.
+                  </label>
+                  <label htmlFor="contact_phone" className="block text-sm text-black mb-1 mt-2">
                     Teléfono
                   </label>
                   <input
@@ -130,20 +136,20 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
                     type="tel"
                     pattern="\d*"
                     inputMode="numeric"
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-gray-300 focus:border-[#c2beb8] outline-none rounded"
                   />
                 </div>
 
                 <div className="w-full max-w-md text-left">
-                  <label htmlFor="guest_message" className="block font-semibold text-sm text-black mb-1">
+                  <label htmlFor="guest_message" className="block text-sm text-black mb-1">
                     Nota o mensaje (opcional)
                   </label>
-                  <textarea name="guest_message" id="guest_message" rows={4} className="w-full p-2 border border-gray-300 rounded" />
+                  <textarea name="guest_message" id="guest_message" rows={4} className="w-full p-2 border border-gray-300 focus:border-[#c2beb8] rounded outline-none" />
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-[#f5f1eb] text-black px-8 py-3 rounded-lg font-serif text-lg hover:bg-[#7a6449] transition-colors"
+                  className="bg-[#f5f1eb] text-black px-8 py-3 rounded-lg font-serif text-lg hover:bg-[#c2beb8] transition-colors outline-none"
                 >
                   Confirmar asistencia
                 </button>

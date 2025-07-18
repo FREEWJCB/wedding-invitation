@@ -17,13 +17,7 @@ export default function CountdownSection() {
 
   const calculateTimeLeft = () => {
     const difference = targetDate - new Date().getTime()
-    let timeLeft = {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    }
-
+    let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 }
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -36,7 +30,6 @@ export default function CountdownSection() {
   }
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft())
@@ -44,7 +37,6 @@ export default function CountdownSection() {
     return () => clearInterval(timer)
   }, [])
 
-  // Refs e inView individuales
   const paragraphRef = useRef(null)
   const titleRef = useRef(null)
   const countdownRef = useRef(null)
@@ -58,7 +50,7 @@ export default function CountdownSection() {
   return (
     <section id="countdown" className="px-6 bg-[#f5f1eb] text-center overflow-hidden">
       <div className="max-w-3xl mx-auto">
-        {/* Párrafo animado por línea */}
+        {/* Párrafo */}
         <div ref={paragraphRef}>
           <div className="text-sm md:text-base text-[#000000] leading-relaxed mb-10 max-w-xl mx-auto space-y-2">
             {paragraphLines.map((line, index) => (
@@ -101,7 +93,7 @@ export default function CountdownSection() {
           </motion.div>
         </div>
 
-        {/* Contador animado */}
+        {/* Contador */}
         <div ref={countdownRef}>
           <div className="grid grid-cols-4 gap-4 text-[#000000] font-mono font-bold text-3xl md:text-5xl mb-10">
             {[
@@ -128,15 +120,12 @@ export default function CountdownSection() {
           </div>
         </div>
 
-        {/* Imagen */}
-        <div ref={imageRef}>
+        {/* Imagen con animación de abajo hacia arriba */}
+        <div ref={imageRef} className="relative w-full max-w-2xl mx-auto overflow-hidden">
           <motion.div
-            initial={false}
-            animate={{
-              opacity: inViewImage ? 1 : 0,
-              y: inViewImage ? 0 : 30
-            }}
-            transition={{ duration: 2.6 }}
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ y: inViewImage ? '0%' : '100%', opacity: inViewImage ? 1 : 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
           >
             <HeroImage imagePath="/program.jpeg" />
           </motion.div>

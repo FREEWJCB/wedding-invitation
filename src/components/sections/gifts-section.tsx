@@ -29,7 +29,8 @@ export default function GiftsSection() {
           transition={{ duration: 2.8, ease: "easeOut", delay: 0.1 }}
           viewport={{ once: false, amount: 0.5 }}
         >
-          <div className="text-xl font-serif text-[#000000] font-semibold mb-4">LLUVIA DE SOBRES</div>
+          <div className="text-xl font-serif text-[#000000] font-semibold">LLUVIA DE</div>
+          <div className="text-xl font-serif text-[#000000] font-semibold mb-4">SOBRES</div>
           <Mail className="w-16 h-16 text-[#000000] mx-auto mb-6" />
         </motion.div>
 
@@ -42,7 +43,8 @@ export default function GiftsSection() {
           transition={{ duration: 2.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: false, amount: 0.5 }}
         >
-          <div className="text-lg font-serif text-[#000000] font-semibold mb-2">CUENTA BANCARIA</div>
+          <div className="text-lg font-serif text-[#000000] font-semibold">CUENTA</div>
+          <div className="text-lg font-serif text-[#000000] font-semibold mb-2">BANCARIA</div>
           <div className="text-xl font-serif text-[#000000] font-bold mb-2">BANCOLOMBIA</div>
           <div className="text-lg font-mono text-[#000000] mb-2">57652017284</div>
           <div className="text-sm text-[#000000]">NOMBRE DEL PROPIETARIO: Daniel Baquero</div>

@@ -10,15 +10,15 @@ export default function TimelineSection() {
     { time: '4:00 PM', title: 'CEREMONIA', icon: Heart },
     { time: '5:00 PM', title: 'COCTEL', icon: Heart },
     { time: '6:00 PM', title: 'ENTRADA DE LOS NOVIOS', icon: Sparkles },
-    { time: '9:30 PM', title: 'CENA', icon: Users },
-    { time: '12:00 AM', title: 'FIESTA', icon: Utensils },
+    { time: '7:00 PM', title: 'CENA', icon: Users },
+    { time: '9:00 PM', title: 'FIESTA', icon: Utensils },
   ]
 
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { margin: '-20% 0px', once: false })
 
   return (
-    <section id="timeline" className="py-16 px-6 bg-[#f5f1eb] text-center">
+    <section id="timeline" className="px-6 bg-[#f5f1eb] text-center">
       <div className="max-w-3xl mx-auto" ref={sectionRef}>
         <h2 className="text-3xl md:text-4xl font-script text-[#000000] mb-12">
           Programa de la boda
