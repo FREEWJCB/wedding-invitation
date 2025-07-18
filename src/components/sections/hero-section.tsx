@@ -10,10 +10,13 @@ export default function HeroSection() {
       className="relative w-full bg-[#f5f1eb] overflow-hidden flex justify-center"
     >
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
         className="invitacion-animada w-full max-w-[600px] aspect-[3/4] relative flex flex-col items-center justify-center"
+        // Animación al entrar y salir del viewport
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 3.2, ease: 'easeOut' }}
+        viewport={{ amount: 0.5 }}  // activa cuando el 50% está visible
       >
         <div className="container">
           <div className="strips">
