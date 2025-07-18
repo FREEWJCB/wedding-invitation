@@ -29,7 +29,6 @@
   max-height: 90vh;   /* Evita que se pase verticalmente */
   overflow-y: auto;   /* Scroll si el contenido excede la altura */
   box-sizing: border-box;
-  border-radius: 12px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }

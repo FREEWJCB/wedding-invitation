@@ -22,7 +22,10 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import { v4 as uuidv4 } from 'uuid';
 
-const client = new DynamoDBClient({});
+const client = new DynamoDBClient({
+    profile: 'baquero',
+    region: 'us-east-1',
+});
 const ddb = DynamoDBDocumentClient.from(client);
 
 const INVITATIONS_TABLE_NAME = 'invitations';

@@ -39,3 +39,6 @@ h1, h2, h3, h4 {
 h1.names, h2.names, h3.names {
   font-family: var(--font-names); /* Charmonman solo para los nombres */
 }
+html, body {
+  overflow-x: hidden;
+}

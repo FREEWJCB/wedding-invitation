@@ -16,50 +16,35 @@ export default function GiftsSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          Sugerencia de Regalos
+          Sugerencia de regalos
         </motion.h2>
 
         {/* Rain of envelopes section (izquierda a derecha) */}
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-md mb-12"
+          className="bg-[#F9F6F1] p-8 rounded-lg shadow-md mb-12"
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-xl font-serif text-[#000000] font-semibold mb-4">LLUVIA DE SOBRES</h3>
+          <div className="text-xl font-serif text-[#000000] font-semibold mb-4">LLUVIA DE SOBRES</div>
           <Mail className="w-16 h-16 text-[#000000] mx-auto mb-6" />
-          <p className="text-sm md:text-base text-[#000000]">
-            Tu presencia es nuestro mejor regalo, pero si deseas hacernos un obsequio, puedes hacerlo en efectivo.
-          </p>
         </motion.div>
 
         {/* Cuentas bancarias (cada una animada desde la izquierda) */}
         <div className="space-y-12">
           <motion.div
-            className="bg-white p-8 rounded-lg shadow-md"
+            className="bg-[#f9f6f1] p-8 rounded-lg shadow-md"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-serif text-[#000000] font-semibold mb-2">CUENTA BANCARIA</h3>
-            <div className="text-xl font-serif text-[#000000] font-bold mb-2">BBVA</div>
-            <div className="text-lg font-mono text-[#000000] mb-2">123456789010</div>
-            <div className="text-sm text-[#000000]">NOMBRE DEL PROPIETARIO: BÁRBARA & SERGIO</div>
-          </motion.div>
-
-          <motion.div
-            className="bg-white p-8 rounded-lg shadow-md"
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-serif text-[#000000] font-semibold mb-2">CUENTA BANCARIA</h3>
-            <div className="text-xl font-serif text-[#000000] font-bold">BANCOPPEL</div>
-            <div className="text-lg font-mono text-[#000000] mb-2">987654321098</div>
-            <div className="text-sm text-[#000000]">NOMBRE DEL PROPIETARIO: BÁRBARA & SERGIO</div>
+            <div className="text-lg font-serif text-[#000000] font-semibold mb-2">CUENTA BANCARIA</div>
+            <div className="text-xl font-serif text-[#000000] font-bold mb-2">BANCOLOMBIA</div>
+            <div className="text-lg font-mono text-[#000000] mb-2">57652017284</div>
+            <div className="text-sm text-[#000000]">NOMBRE DEL PROPIETARIO: Daniel Baquero</div>
+            <div className="text-sm text-[#000000]">C.C: 1.136.883.136</div>
           </motion.div>
         </div>
       </div>

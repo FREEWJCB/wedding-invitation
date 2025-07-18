@@ -5,6 +5,7 @@
   width: 100%;
   padding: 40px 0;
 }
+
 .invitacion-animada .container {
   position: relative;
   width: 100%;
@@ -17,32 +18,37 @@
   gap: 8px;
   height: 100%;
   width: 100%;
-  align-items: stretch;
 }
 
 .invitacion-animada .strip {
   flex: 1;
   height: 100%;
+  position: relative;
   background-image: url('../../public/boda.jpeg');
   background-repeat: no-repeat;
-  background-size: 300% 100%; /* ← clave para dividir la imagen en 3 partes */
+  background-size: 300% 100%;
   background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation-duration: 6s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+
 }
 
-/* Ajuste preciso de cada franja */
-.invitacion-animada .strip:nth-child(1) {
+.strip-left {
   background-position-x: 0%;
   animation-name: floatUpDown;
 }
-.invitacion-animada .strip:nth-child(2) {
+
+.strip-center {
   background-position-x: 50%;
   animation-name: floatDownUp;
 }
-.invitacion-animada .strip:nth-child(3) {
+
+.strip-right {
   background-position-x: 100%;
   animation-name: floatUpDown;
 }
@@ -57,50 +63,39 @@
   100% { transform: translateY(20px); }
 }
 
-/* overlay text */
-.overlay-text {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.nombre,
+.amp {
   font-family: var(--font-great-vibes), cursive;
-}
-
-.nombre {
-  position: absolute;
-  font-size: 36px;
-  color: #8b7355;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #DDDDDD;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   white-space: nowrap;
+  pointer-events: none;
+  position: absolute;
 }
 
 .nombre-izq {
-  top: 20px;
-  left: 20px;
+  top: 21%;
+  left: 10%;
+  font-size: clamp(40px, 5vw, 60px);
 }
 
 .nombre-der {
-  bottom: 20px;
-  right: 20px;
+  bottom: 16%;
+  right: 10%;
+  font-size: clamp(40px, 5vw, 60px);
 }
 
 .amp {
-  position: absolute;
-  top: 50%;
+  top: 61%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: #8b7355;
-  font-family: var(--font-great-vibes), cursive;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: clamp(40px, 6vw, 70px);
 }
 
-/* responsive */
 @media (max-width: 768px) {
-  .nombre {
-    font-size: 22px;
-  }
+  .nombre,
   .amp {
-    font-size: 26px;
+    font-size: clamp(40px, 5vw, 28px);
   }
 
   .invitacion-animada .container {

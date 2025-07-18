@@ -44,7 +44,7 @@ export default function CountdownSection() {
   }, [])
 
   return (
-    <section id="countdown" className="py-6 px-6 bg-[#f5f1eb] text-center overflow-hidden">
+    <section id="countdown" className="px-6 bg-[#f5f1eb] text-center overflow-hidden">
       <div className="max-w-3xl mx-auto">
         {/* Párrafo animado por línea */}
         <div className="text-sm md:text-base text-[#000000] leading-relaxed mb-10 max-w-xl mx-auto space-y-2">
@@ -61,8 +61,8 @@ export default function CountdownSection() {
         </div>
 
         {/* Título animado por letra */}
-        <motion.h2
-          className="text-2xl md:text-4xl font-script text-[#000000] mb-4 leading-tight inline-block"
+        <motion.div
+          className="text-2xl md:text-4xl font-body text-[#000000] mb-4 leading-tight inline-block"
           initial="hidden"
           animate="visible"
           variants={{
@@ -85,7 +85,7 @@ export default function CountdownSection() {
               {char}
             </motion.span>
           ))}
-        </motion.h2>
+        </motion.div>
 
         {/* Contador animado por columna */}
         <div className="grid grid-cols-4 gap-4 text-[#000000] font-mono font-bold text-3xl md:text-5xl mb-10">

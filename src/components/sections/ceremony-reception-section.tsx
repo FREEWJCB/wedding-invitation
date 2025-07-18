@@ -10,7 +10,7 @@ export default function CeremonyReceptionSection() {
       <div className="max-w-3xl mx-auto space-y-12 mb-12">
         {/* Church section animado */}
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-md"
+          className="bg-[#F9F6F1] p-8 rounded-lg shadow-md"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -19,7 +19,6 @@ export default function CeremonyReceptionSection() {
           <Church className="w-16 h-16 text-[#000000] mx-auto mb-4" />
           <h2 className="text-2xl font-script text-[#000000] mb-2">Hacienda Terranostra</h2>
           <h3 className="text-xl font-serif text-[#000000] font-semibold mb-2">Subachoque</h3>
-          <p className="text-sm text-[#000000] mb-4">Av Cristóbal de Robles #456 Navarro, Son</p>
           <div className="text-2xl font-serif text-[#000000] font-bold mb-4">5:00 PM</div>
           <div className="flex justify-center flex-wrap gap-4 mt-4">
             <a href="https://www.google.com/maps/search/?api=1&query=4.943580,-74.157142" target="_blank">
