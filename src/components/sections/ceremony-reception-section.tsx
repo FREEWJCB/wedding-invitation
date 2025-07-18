@@ -1,8 +1,8 @@
 "use client"
 
-import { Church, Wine } from "lucide-react"
 import HeroImage from "@/components/hero-image"
 import { motion } from "framer-motion"
+import Image from 'next/image';
 
 export default function CeremonyReceptionSection() {
   return (
@@ -16,14 +16,20 @@ export default function CeremonyReceptionSection() {
           viewport={{ amount: 0.5 }}
           transition={{ duration: 2.8, ease: "easeOut" }}
         >
-          <Church className="w-16 h-16 text-[#000000] mx-auto mb-4" />
+          <Image
+            src="/icon/church.svg"
+            alt="Iglesia"
+            width={64}
+            height={64}
+            className="mx-auto mb-6 w-16 h-16"
+          />
           <h2 className="text-2xl font-script text-[#000000] mb-2">
             Ceremonia Religiosa
           </h2>
           <div className="text-xl font-serif text-[#000000] font-semibold mb-2">
             CAPILLA HACIENDA TERRANOSTRA
           </div>
-          <h3 className="text-sm font-serif text-[#000000] font-semibold mb-2">
+          <h3 className="text-xl font-serif text-[#000000] font-semibold mb-2">
             Subachoque, Cundinamarca
           </h3>
           <div className="text-2xl font-serif text-[#000000] mb-4">
@@ -53,14 +59,20 @@ export default function CeremonyReceptionSection() {
           viewport={{ amount: 0.5 }}
           transition={{ duration: 2.8, ease: "easeOut" }}
         >
-          <Wine className="w-16 h-16 text-[#000000] mx-auto mb-4" />
+          <Image
+            src="/icon/wine.svg"
+            alt="Wine"
+            width={64}
+            height={64}
+            className="mx-auto mb-6 w-16 h-16"
+          />
           <h2 className="text-2xl font-script text-[#000000] mb-2">
             Recepción
           </h2>
           <div className="text-xl font-serif text-[#000000] font-semibold mb-2">
             HACIENDA TERRANOSTRA
           </div>
-          <h3 className="text-sm font-serif text-[#000000] font-semibold mb-2">
+          <h3 className="text-xl font-serif text-[#000000] font-semibold mb-2">
             Subachoque, Cundinamarca
           </h3>
           <div className="text-2xl font-serif text-[#000000]  mb-4">

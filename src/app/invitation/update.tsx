@@ -50,6 +50,7 @@ export default async function Update(formData: FormData) {
         contact_phone: request.contact_phone,
         guest_message: request.guest_message,
     }
+    console.log('Confirming invitation with data:', att);
     await confirmInvitation(att)
     // redirect(`/invitation/${request.code}`)
 }

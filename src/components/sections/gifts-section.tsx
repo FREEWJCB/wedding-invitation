@@ -1,8 +1,8 @@
 'use client'
 
-import { Mail } from "lucide-react"
 import HeroImage from '@/components/hero-image'
 import { motion } from 'framer-motion'
+import Image from "next/image"
 
 export default function GiftsSection() {
   return (
@@ -31,7 +31,13 @@ export default function GiftsSection() {
         >
           <div className="text-xl font-serif text-[#000000] font-semibold">LLUVIA DE</div>
           <div className="text-xl font-serif text-[#000000] font-semibold mb-4">SOBRES</div>
-          <Mail className="w-16 h-16 text-[#000000] mx-auto mb-6" />
+          <Image
+            src="/icon/mail.svg"
+            alt="Sobre"
+            width={64}
+            height={64}
+            className="mx-auto mb-6 w-16 h-16"
+          />
         </motion.div>
 
         {/* Cuenta bancaria */}

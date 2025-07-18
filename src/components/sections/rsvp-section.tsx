@@ -51,7 +51,7 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
               animate={isTextInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
               transition={{ duration: 2.6, delay: isTextInView ? 0.2 : 0 }}
             >
-              TU CONFIRMACIÓN ES MUY IMPORTANTE! POR FAVOR, INDÍCANOS SI ASISTIRÁS O NO A NUESTRA BODA ANTES DEL 17 DE MAYO 2025.
+              TU CONFIRMACIÓN ES MUY IMPORTANTE. POR FAVOR INDÍQUENOS SI NOS PUEDES ACOMPAÑAR EN NUESTRA BODA ANTES DEL 15 DE AGOSTO.
             </motion.p>
           </motion.div>
 
@@ -142,7 +142,7 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
 
                 <div className="w-full max-w-md text-left">
                   <label htmlFor="guest_message" className="block text-sm text-black mb-1">
-                    Nota o mensaje (opcional)
+                    Mensaje para los novios (opcional)
                   </label>
                   <textarea name="guest_message" id="guest_message" rows={4} className="w-full p-2 border border-gray-300 focus:border-[#c2beb8] rounded outline-none" />
                 </div>

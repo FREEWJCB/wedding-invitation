@@ -2,16 +2,16 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Church, Heart, Sparkles, Users, Utensils } from 'lucide-react'
+import Image from 'next/image'
 
 export default function TimelineSection() {
   const timelineEvents = [
-    { time: '3:30 PM', title: 'RECEPCIÓN CON CAFECITO', icon: Church },
-    { time: '4:00 PM', title: 'CEREMONIA', icon: Heart },
-    { time: '5:00 PM', title: 'COCTEL', icon: Heart },
-    { time: '6:00 PM', title: 'ENTRADA DE LOS NOVIOS', icon: Sparkles },
-    { time: '7:00 PM', title: 'CENA', icon: Users },
-    { time: '9:00 PM', title: 'FIESTA', icon: Utensils },
+    { time: '3:30 PM', title: 'RECEPCIÓN CON CAFECITO', icon: '/icon/cafe.svg' },
+    { time: '4:00 PM', title: 'CEREMONIA', icon: '/icon/anillos.svg' },
+    { time: '5:00 PM', title: 'COCTEL', icon: '/icon/coctel.svg' },
+    { time: '6:00 PM', title: 'ENTRADA DE LOS NOVIOS', icon: '/icon/novios.svg' },
+    { time: '7:00 PM', title: 'CENA', icon: '/icon/cena.svg' },
+    { time: '9:00 PM', title: 'FIESTA', icon: '/icon/party.svg' },
   ]
 
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -28,7 +28,6 @@ export default function TimelineSection() {
           <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-black h-full" />
 
           {timelineEvents.map((event, index) => {
-            const IconComponent = event.icon
             const isLeft = index % 2 === 0
 
             return (
@@ -52,7 +51,13 @@ export default function TimelineSection() {
                 </div>
 
                 <div className={`w-1/2 flex ${isLeft ? 'justify-start pl-8' : 'justify-end pr-8'}`}>
-                  <IconComponent className="w-8 h-8 text-[#000000]" />
+                  <Image
+                    src={event.icon}
+                    alt={event.title}
+                    width={48}
+                    height={48}
+                    className="w-15 h-15"
+                  />
                 </div>
               </motion.div>
             )
