@@ -143,17 +143,31 @@ export const confirmInvitation = async (request: ConfirmInvitation): Promise<Inv
         updated_at: now,
     };
 
+    // Construye dinámicamente la expresión de actualización
+    const expressionParts = [
+        'contact_phone = :contact_phone',
+        'has_choosen_driver = :has_choosen_driver',
+        'confirmed = :confirmed',
+        'updated_at = :updated_at',
+    ];
+    const expressionValues: Record<string, unknown> = {
+        ':contact_phone': updatedInvitation.contact_phone,
+        ':has_choosen_driver': updatedInvitation.has_choosen_driver,
+        ':confirmed': updatedInvitation.confirmed,
+        ':updated_at': updatedInvitation.updated_at,
+    };
+
+    // Solo incluir guest_message si tiene valor
+    if (updatedInvitation.guest_message != null) {
+        expressionParts.unshift('guest_message = :guest_message');
+        expressionValues[':guest_message'] = updatedInvitation.guest_message;
+    }
+
     await ddb.send(new UpdateCommand({
         TableName: INVITATIONS_TABLE_NAME,
         Key: { code },
-        UpdateExpression: 'SET guest_message = :guest_message, contact_phone = :contact_phone, has_choosen_driver = :has_choosen_driver, confirmed = :confirmed, updated_at = :updated_at',
-        ExpressionAttributeValues: {
-            ':guest_message': updatedInvitation.guest_message,
-            ':contact_phone': updatedInvitation.contact_phone,
-            ':has_choosen_driver': updatedInvitation.has_choosen_driver,
-            ':confirmed': updatedInvitation.confirmed,
-            ':updated_at': updatedInvitation.updated_at,
-        },
+        UpdateExpression: 'SET ' + expressionParts.join(', '),
+        ExpressionAttributeValues: expressionValues,
     }));
 
     // Process guests
@@ -184,15 +198,22 @@ export const confirmInvitation = async (request: ConfirmInvitation): Promise<Inv
                 updated_at: now,
             };
 
+            const expressionParts = ['full_name = :full_name', 'updated_at = :updated_at'];
+            const expressionValues: Record<string, any> = {
+                ':full_name': updatedInvitee.full_name,
+                ':updated_at': updatedInvitee.updated_at,
+            };
+
+            if (updatedInvitee.allergy_info) {
+                expressionParts.push('allergy_info = :allergy_info');
+                expressionValues[':allergy_info'] = updatedInvitee.allergy_info;
+            }
+
             await ddb.send(new UpdateCommand({
                 TableName: INVITEES_TABLE_NAME,
                 Key: { id: updatingInvitee.id },
-                UpdateExpression: 'SET full_name = :full_name, allergy_info = :allergy_info, updated_at = :updated_at',
-                ExpressionAttributeValues: {
-                    ':full_name': updatedInvitee.full_name,
-                    ':allergy_info': updatedInvitee.allergy_info,
-                    ':updated_at': updatedInvitee.updated_at,
-                },
+                UpdateExpression: 'SET ' + expressionParts.join(', '),
+                ExpressionAttributeValues: expressionValues,
             }));
 
             updatedPrincipals.push(updatedInvitee);
