@@ -131,7 +131,7 @@ export const confirmInvitation = async (request: ConfirmInvitation): Promise<Inv
         throw new Error(`Cannot add ${escortCount} escorts. Maximum allowed: ${invitation.escorts}`);
     }
 
-    if (totalInvitees > invitation.count) {
+    if (principalInvitees.length > invitation.count) {
         throw new Error(`Total invitees (${totalInvitees}) exceeds invitation limit (${invitation.count})`);
     }
 

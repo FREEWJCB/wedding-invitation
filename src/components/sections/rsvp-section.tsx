@@ -12,7 +12,7 @@ interface RSVPSectionProps {
 }
 
 export default function RSVPSection({ invitation }: RSVPSectionProps) {
-  const { code, count, escorts } = invitation
+  const { code, count, escorts, invitees } = invitation
 
   const titleRef = useRef(null)
   const textRef = useRef(null)
@@ -72,9 +72,10 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
                     <label htmlFor={`invitees[${idx}][full_name]`} className="block text-sm text-black mb-1">
                       Nombre del invitado {idx + 1}
                     </label>
+                    <input type="hidden" name={`inviteesid${idx}`} value={invitees[idx].id} />
                     <input
-                      name={`invitees[${idx}][full_name]`}
-                      id={`invitees[${idx}][full_name]`}
+                      name={`inviteesfull_name${idx}`}
+                      id={`inviteesfull_name${idx}`}
                       required
                       className="w-full focus:border-[#c2beb8] outline-none p-2 border border-gray-300 rounded"
                     />
@@ -82,8 +83,8 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
                       ¿Alguna alergia? (opcional)
                     </label>
                     <input
-                      name={`invitees[${idx}][allergy_info]`}
-                      id={`invitees[${idx}][allergy_info]`}
+                      name={`inviteesallergy_info${idx}`}
+                      id={`inviteesallergy_info${idx}`}
                       className="w-full focus:border-[#c2beb8] p-2 border outline-none border-gray-300 rounded"
                     />
                   </div>
@@ -97,8 +98,8 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
                         Nombre del invitado {currentIdx + 1}
                       </label>
                       <input
-                        name={`escorts[${idx}][full_name]`}
-                        id={`escorts[${idx}][full_name]`}
+                        name={`escortsfull_name${idx}`}
+                        id={`escortsfull_name${idx}`}
                         required
                         className="w-full p-2 border focus:border-[#c2beb8] outline-none border-gray-300 rounded"
                       />
@@ -106,8 +107,8 @@ export default function RSVPSection({ invitation }: RSVPSectionProps) {
                         ¿Alguna alergia? (opcional)
                       </label>
                       <input
-                        name={`escorts[${idx}][allergy_info]`}
-                        id={`escorts[${idx}][allergy_info]`}
+                        name={`escortsallergy_info${idx}`}
+                        id={`escortsallergy_info${idx}`}
                         className="w-full p-2 border focus:border-[#c2beb8] outline-none border-gray-300 rounded"
                       />
                     </div>
